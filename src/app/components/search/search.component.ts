@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-search',
-  templateUrl: './search.component.html',
-  //styleUrls: ['./search.component.css']
+  selector: 'app-root',
+  templateUrl: './search.component.html'
 })
 export class SearchComponent implements OnInit {
 
@@ -12,4 +11,8 @@ export class SearchComponent implements OnInit {
   ngOnInit() {
   }
 
+  handleSearch($event): void {
+
+    console.log($event.target.value);
+  }
 }
