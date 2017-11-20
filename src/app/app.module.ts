@@ -2,6 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+import { RouterModule, Routes } from '@angular/router';
+
 // custom components
 import { SearchComponent } from './components/search/search.component';
 import { UserComponent } from './components/user/user.component';
@@ -14,7 +18,10 @@ import { HomeComponent } from './components/home/home.component';
 import { DataService } from './services/data.service';
 import { LyricsService } from './services/lyrics.service';
 
-import { HttpModule } from '@angular/http';
+// routes
+const appRoutes: Routes = [
+    { path: 'home', component: HomeComponent }
+];
 
 @NgModule({
     declarations: [
@@ -27,7 +34,10 @@ import { HttpModule } from '@angular/http';
     ],
     imports: [
         BrowserModule,
-        HttpModule
+        HttpModule,
+        FormsModule,
+        RouterModule.forRoot(appRoutes),
+        NgbModule.forRoot()
     ],
     providers: [DataService, LyricsService],
     bootstrap: [SearchComponent]
